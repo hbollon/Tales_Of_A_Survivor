@@ -1,5 +1,3 @@
-//Inutile pour le moment
-
 #include "variablesglobs.h"
 #include "render_window.h"
 
@@ -20,6 +18,8 @@ Render_Window::Render_Window()
     {
         App = new sf::RenderWindow (sf::VideoMode(m_Largeur, m_Hauteur, 32), "Tales of a Survivor");
     }
+
+    sprites::init();
 
     while (App->isOpen())
     {

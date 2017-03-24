@@ -8,6 +8,7 @@
 #include <QBrush>
 #include <QPalette>
 #include <QPixmap>
+#include <QResource>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -15,7 +16,9 @@
 #include "credits.h"
 #include "settings.h"
 #include "render_window.h"
+#include "sprites.h"
 #include "variablesglobs.h"
+
 
 namespace Ui {
 class MainWindow;

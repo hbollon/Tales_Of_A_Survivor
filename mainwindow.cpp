@@ -11,7 +11,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
 
+    QResource::registerResource("ressourcesqtdesign.qrc");
+
     setWindowTitle("Tales Of A Survivor");
+
+    QPalette palette;
+    palette.setBrush(this->backgroundRole(), QBrush(QImage("bkg.jpg")));
+    this->setPalette(palette);
 
     pushButton_4 = new QPushButton("HIGHSCORES", this);
     pushButton_4 -> move(540, 260);
