@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QComboBox>
 #include <QCheckBox>
+#include <QSlider>
 #include "variablesglobs.h"
 
 namespace Ui {
@@ -24,12 +25,14 @@ private:
     Ui::Settings *ui;
     QComboBox *boxResolution;
     QCheckBox *fullscreenBox;
-
-
+    QCheckBox *boxMute;
+    QSlider *musicVol;
 
 private slots:
     void resolution();
     void fullscreen();
+    void muteMusic();
+    void musicVolume();
 
 };
 

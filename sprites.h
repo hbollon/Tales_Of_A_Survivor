@@ -14,10 +14,12 @@ class sprites : public QWidget
 public:
     sprites();
     void loadTextures();
-    static void init();
+    void createSprites();
+    sf::Sprite getBackground();
 
 private:
-
+    sf::Texture background;
+    sf::Sprite spriteBackground;
 
 };
 

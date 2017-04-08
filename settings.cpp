@@ -1,3 +1,4 @@
+#include "mainwindow.h"
 #include "settings.h"
 #include "ui_settings.h"
 #include "variablesglobs.h"
@@ -23,17 +24,27 @@ Settings::Settings(QWidget *parent) :
     boxResolution -> addItem("1600x900", 2);
     boxResolution -> addItem("1920x1080", 3);
     boxResolution -> setCurrentIndex(actualIndex);
-    boxResolution -> setEnabled(enableBox);
 
     fullscreenBox = new QCheckBox("Fullscreen", this);
     fullscreenBox -> move(450, 120);
     fullscreenBox -> setMinimumSize(70, 17);
     fullscreenBox -> setChecked(etatBox);
 
+    musicVol = new QSlider(Qt::Horizontal, this);
+    musicVol -> move(130, 180);
+    musicVol -> setMinimumSize(160, 19);
+    musicVol -> setValue(musicVolEtat);
+    musicVol -> setEnabled(enableVolSlider);
+
+    boxMute = new QCheckBox("Mute", this);
+    boxMute -> move(390, 180);
+    boxMute -> setMinimumSize(70, 17);
+    boxMute -> setChecked(etatMuteBox);
+
     QObject::connect(boxResolution, SIGNAL(currentIndexChanged(int)), this, SLOT(resolution()));
     QObject::connect(fullscreenBox, SIGNAL(stateChanged(int)), this, SLOT(fullscreen()));
-
-
+    QObject::connect(boxMute, SIGNAL(stateChanged(int)), this, SLOT(muteMusic()));
+    QObject::connect(musicVol, SIGNAL(valueChanged(int)), this, SLOT(musicVolume()));
 
 }
 
@@ -79,14 +90,36 @@ void Settings::fullscreen()
         fullBox = 1;
         etatBox = true;
         boxResolution -> setDisabled(true);
-        enableBox = false;
     }
     else if (fullscreenBox->checkState() == 0)
     {
         fullBox = 0;
         etatBox = false;
         boxResolution -> setEnabled(true);
-        enableBox = true;
     }
 
+}
+
+void Settings::muteMusic()
+{
+    if (boxMute->checkState() == 2)
+    {
+        mute();
+        etatMuteBox = true;
+        musicVol -> setDisabled(true);
+        enableVolSlider = false;
+    }
+    else if (boxMute->checkState() == 0)
+    {
+        vol();
+        etatMuteBox = false;
+        musicVol -> setEnabled(true);
+        enableVolSlider = true;
+    }
+}
+
+void Settings::musicVolume()
+{
+    musicVolEtat = musicVol -> value();
+    vol();
 }

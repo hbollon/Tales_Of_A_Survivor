@@ -9,6 +9,7 @@
 #include <QPalette>
 #include <QPixmap>
 #include <QResource>
+#include <QMediaPlayer>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -30,7 +31,9 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow(); 
+    void setVol();
+    void muteVolume();
+    ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
@@ -39,6 +42,7 @@ private:
     Settings *Setting;
     QPushButton *pushButton_4;
     QPushButton *pushButton;
+    QMediaPlayer *player;
 
 private slots:
     void openHighScores();

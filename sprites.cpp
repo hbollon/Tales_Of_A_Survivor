@@ -3,26 +3,27 @@
 sprites::sprites()
 {
     loadTextures();
+    createSprites();
 }
 
 void sprites::loadTextures()
 {
-    sf::Texture dirt;
-    if (!dirt.loadFromFile("dirt.png"))
+    background;
+    if (!background.loadFromFile("bkg.jpg"))
     {
-        QMessageBox::critical(this, "Erreur", "Impossible de charger la texture dirt.png<br />Veuillez verifier la présence de ce fichier ou contactez un administrateur");
+        QMessageBox::critical(this, "Erreur", "Impossible de charger la texture bkg.jpg<br />Veuillez verifier la présence de ce fichier ou contactez un administrateur");
         system("PAUSE");
     }
 
-    sf::Texture grass;
-    if (!grass.loadFromFile("grass.png"))
-    {
-        QMessageBox::critical(this, "Erreur", "Impossible de charger la texture grass.png<br />Veuillez verifier la présence de ce fichier ou contactez un administrateur");
-        system("PAUSE");
-    }
 }
 
-void sprites::init()
+void sprites::createSprites()
 {
-    sprites();
+    spriteBackground.setTexture(background);
 }
+
+sf::Sprite sprites::getBackground()
+{
+    return spriteBackground;
+}
+
