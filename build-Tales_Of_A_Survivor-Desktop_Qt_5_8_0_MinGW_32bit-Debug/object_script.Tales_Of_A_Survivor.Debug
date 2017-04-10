@@ -1,0 +1,17 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\highscores.o
+./debug\credits.o
+./debug\render_window.o
+./debug\settings.o
+./debug\variablesglobs.o
+./debug\sprites.o
+./debug\define.o
+./debug\personnage.o
+./debug\qrc_ressourcesqtdesign.o
+./debug\moc_mainwindow.o
+./debug\moc_highscores.o
+./debug\moc_credits.o
+./debug\moc_settings.o
+);
