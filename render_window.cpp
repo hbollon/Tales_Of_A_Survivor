@@ -17,7 +17,7 @@ Render_Window::Render_Window()
         App = new sf::RenderWindow (sf::VideoMode(m_Largeur, m_Hauteur, 32), "Tales of a Survivor");
     }
 
-    //personnage player;
+    Personnage player;
     sprites Sprite;
 
     while (App->isOpen())
@@ -29,38 +29,39 @@ Render_Window::Render_Window()
                 App->close();
         }
 
-        /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         {
-            App.close();
+            App->close();
         }
         if (sf::Keyboard::isKeyPressed((sf::Keyboard::D)))
         {
-            personnage.moveRight();
+            player.moveRight();
         }
 
         if (sf::Keyboard::isKeyPressed((sf::Keyboard::Q)))
         {
-            personnage.moveLeft();
+            player.moveLeft();
         }
 
         if (sf::Keyboard::isKeyPressed((sf::Keyboard::Space)))
         {
-            personnage.jumpNoMove();
+            player.jumpNoMove();
         }
 
         if ((sf::Keyboard::isKeyPressed((sf::Keyboard::D))) && (sf::Keyboard::isKeyPressed((sf::Keyboard::Space))))
         {
-            personnage.jumpMoveRight();
+            player.jumpMoveRight();
         }
 
         if ((sf::Keyboard::isKeyPressed((sf::Keyboard::Q))) && (sf::Keyboard::isKeyPressed((sf::Keyboard::Space))))
         {
-            personnage.jumpMoveLeft();
-        }*/
+            player.jumpMoveLeft();
+        }
 
         App->clear();
 
         App->draw(Sprite.getBackground());
+        App->draw(player.getSprite());
         loadMap();
 
         App->display();

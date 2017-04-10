@@ -9,6 +9,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
+#include "personnage.h"
+#include "define.h"
 #include "sprites.h"
 #include "variablesglobs.h"
 

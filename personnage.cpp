@@ -1,56 +1,80 @@
 #include "personnage.h"
+#include <cmath>
+#include "define.h"
 using namespace std;
 
-Personnage::Personnage() m_X(0.f), m_Y(0.f)
-    //sf::texture m_persoTexture; //Texture du Personnage
-    if (!m_persoTexture.loadFromFile("sprites/player.png"))
+int textureChecker(0);
+
+Personnage::Personnage(): m_X(0.f), m_Y(545.f)
+{
+    if (!m_persoTexture.loadFromFile("player.png"))
     {
-        std::cout << "Error loading personnage.png" << std::endl;
+        std::cout << "Error when loading player.png" << std::endl;
     }
     else
     {
-        std::cout << "Loarding personnage.png successful" << std::endl;
+        std::cout << "Loading player.png successful" << std::endl;
     }
 
-    spiritPerso.setTexture(m_persoTexture);
-    spritePerso.setPosition(0.f, 0.f),
+    if (!m_persoTextureInv.loadFromFile("playerInv.png"))
+    {
+        std::cout << "Error when loading playerInv.png" << std::endl;
+    }
+    else
+    {
+        std::cout << "Loading playerInv.png successful" << std::endl;
+    }
+
+    m_persoSprite.setTexture(m_persoTexture);
+    m_persoSprite.setPosition(0.f, 545.f);
 }
 
-Personnage::getX() const
+float Personnage::getX() const
 {
     return m_X;
 }
-Personnage::getY() const
+float Personnage::getY() const
 {
     return m_Y;
 }
 
-//sf:sprite getSprite() const
+sf::Sprite Personnage::getSprite() const
 {
-    return persoSprite;
+    return m_persoSprite;
 }
 
-Personnage::moveRight()
+float Personnage::moveRight()
 {
-    spritePerso.move(5.f, 0.f)
+    if (textureChecker != 1)
+    {
+        textureChecker = 1;
+        m_persoSprite.setTexture(m_persoTexture);
+    }
+
+    m_persoSprite.move(0.2f, 0.f);
 }
 
-Personnage::moveLeft()
+float Personnage::moveLeft()
 {
-    spritePerso.move(-5.f, 0.f)
+    if (textureChecker != 0)
+    {
+        textureChecker = 0;
+        m_persoSprite.setTexture(m_persoTextureInv);
+    }
+    m_persoSprite.move(-0.2f, 0.f);
 }
 
-Personnage::jumpNoMove()
+float Personnage::jumpNoMove()
 {
 
 }
 
-Personnage::jumpMoveRight()
+float Personnage::jumpMoveRight()
 {
 
 }
 
-Personnage::jumpMoveLeft()
+float Personnage::jumpMoveLeft()
 {
 
 }

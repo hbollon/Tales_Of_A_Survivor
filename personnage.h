@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include <string>
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
+#include "render_window.h"
 
 class Personnage
 {
@@ -10,7 +14,7 @@ public:
     Personnage();               //Constructeur
     float getX() const;
     float getY() const;
-    sf::sprite getSprite() const; //récupère le sprite du personnage
+    sf::Sprite getSprite() const; //recupere le sprite du personnage
 
     float moveRight();
     float moveLeft();
@@ -19,8 +23,9 @@ public:
     float jumpMoveLeft();
 
 private:
-    //sf::texture m_persoTexture;
-    //sf::spirite m_persoSprite;
+    sf::Texture m_persoTexture;
+    sf::Texture m_persoTextureInv;
+    sf::Sprite m_persoSprite;
     float m_X;
     float m_Y;
 

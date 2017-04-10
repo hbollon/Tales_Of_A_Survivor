@@ -3,9 +3,9 @@
 
 #include <string>
 #include <iostream>
-
-#define screen_largeur 800
-#define screen_hauteur 600
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
 
 //define saut
 #define PI                                    3.1415
@@ -16,8 +16,8 @@
 #define G                                       9.81
 #define POSITION_DU_SOL                          0.f
 
-//extern sf::Clock HorlogeSaut;
-//extern float Temporel;
+extern sf::Clock HorlogeSaut;
+extern float Temporel;
 
 
 #endif // DEFINE_H_INCLUDED
