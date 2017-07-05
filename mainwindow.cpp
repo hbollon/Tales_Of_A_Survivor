@@ -31,8 +31,18 @@ MainWindow::MainWindow(QWidget *parent) :
     pushButton -> move(540, 160);
     pushButton -> setMinimumSize(151, 61);
 
+    selectLevel = new QPushButton("LEVEL", this);
+    selectLevel -> move(720, 160);
+    selectLevel -> setMinimumSize(151, 61);
+
+    pushEditeur = new QPushButton("EDITEUR", this);
+    pushEditeur -> move(360, 160);
+    pushEditeur -> setMinimumSize(151, 61);
+
     QObject::connect(pushButton_4, SIGNAL(clicked()), this, SLOT(openHighScores()));
     QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(openRenderWindow()));
+    QObject::connect(selectLevel, SIGNAL(clicked()), this, SLOT(openLevelWindow()));
+    QObject::connect(pushEditeur, SIGNAL(clicked()), this, SLOT(openEditor()));
 
 }
 
@@ -59,6 +69,17 @@ void MainWindow::openSettings()
     Setting -> show();
 }
 
+void MainWindow::openLevelWindow()
+{
+    Levels = new Level();
+    Levels -> show();
+}
+
+void MainWindow::openEditor()
+{
+    Editor = new Editeur();
+    Editor -> show();
+}
 
 void MainWindow::openRenderWindow()
 {

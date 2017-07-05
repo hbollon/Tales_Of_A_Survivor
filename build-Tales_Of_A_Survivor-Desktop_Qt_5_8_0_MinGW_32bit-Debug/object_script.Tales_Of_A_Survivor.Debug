@@ -9,9 +9,16 @@ INPUT(
 ./debug\sprites.o
 ./debug\define.o
 ./debug\personnage.o
+./debug\monstre.o
+./debug\level.o
+./debug\editeur.o
+./debug\editeurhelp.o
 ./debug\qrc_ressourcesqtdesign.o
 ./debug\moc_mainwindow.o
 ./debug\moc_highscores.o
 ./debug\moc_credits.o
 ./debug\moc_settings.o
+./debug\moc_level.o
+./debug\moc_editeur.o
+./debug\moc_editeurhelp.o
 );

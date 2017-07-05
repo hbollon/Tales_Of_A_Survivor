@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Tales_Of_A_Survivor
 TEMPLATE = app
 CONFIG += console
+CONFIG += c++11
 QT += core gui multimedia
 
 # The following define makes your compiler emit warnings if you use
@@ -34,7 +35,11 @@ SOURCES += main.cpp\
     variablesglobs.cpp \
     sprites.cpp \
     define.cpp \
-    personnage.cpp
+    personnage.cpp \
+    monstre.cpp \
+    level.cpp \
+    editeur.cpp \
+    editeurhelp.cpp
 
 HEADERS  += mainwindow.h \
     highscores.h \
@@ -44,12 +49,19 @@ HEADERS  += mainwindow.h \
     variablesglobs.h \
     sprites.h \
     define.h \
-    personnage.h
+    personnage.h \
+    monstre.h \
+    level.h \
+    editeur.h \
+    editeurhelp.h
 
 FORMS    += mainwindow.ui \
     highscores.ui \
     credits.ui \
-    settings.ui
+    settings.ui \
+    level.ui \
+    editeur.ui \
+    editeurhelp.ui
 
 win32:CONFIG(release, debug|release): LIBS += -LC:/SFML/lib/ -lsfml-graphics- -lsfml-main- -lsfml-system- -lsfml-window-
 else:win32:CONFIG(debug, debug|release): LIBS += -LC:/SFML/lib/ -lsfml-graphics-d -lsfml-main-d -lsfml-system-d -lsfml-window-d
@@ -59,3 +71,9 @@ DEPENDPATH += C:/SFML/include
 
 RESOURCES += \
     ressourcesqtdesign.qrc
+
+win32:CONFIG(release, debug|release): LIBS += -LC:/SFML/lib/ -lsfml-audio
+else:win32:CONFIG(debug, debug|release): LIBS += -LC:/SFML/lib/ -lsfml-audio-d
+
+INCLUDEPATH += C:/SFML/include
+DEPENDPATH += C:/SFML/include

@@ -18,6 +18,8 @@
 #include "settings.h"
 #include "render_window.h"
 #include "sprites.h"
+#include "level.h"
+#include "editeur.h"
 #include "variablesglobs.h"
 
 
@@ -40,8 +42,12 @@ private:
     HighScores *HighScore;
     Credits *Credit;
     Settings *Setting;
+    Level *Levels;
+    Editeur *Editor;
     QPushButton *pushButton_4;
     QPushButton *pushButton;
+    QPushButton *selectLevel;
+    QPushButton *pushEditeur;
     QMediaPlayer *player;
 
 private slots:
@@ -49,6 +55,8 @@ private slots:
     void openCredits();
     void openRenderWindow();
     void openSettings();
+    void openLevelWindow();
+    void openEditor();
 
 };
 

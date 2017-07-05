@@ -9,9 +9,16 @@ INPUT(
 ./release\sprites.o
 ./release\define.o
 ./release\personnage.o
+./release\monstre.o
+./release\level.o
+./release\editeur.o
+./release\editeurhelp.o
 ./release\qrc_ressourcesqtdesign.o
 ./release\moc_mainwindow.o
 ./release\moc_highscores.o
 ./release\moc_credits.o
 ./release\moc_settings.o
+./release\moc_level.o
+./release\moc_editeur.o
+./release\moc_editeurhelp.o
 );
