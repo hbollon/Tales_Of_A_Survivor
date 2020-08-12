@@ -10,6 +10,12 @@
 *.dll
 *.dylib
 
+# Binary files
+*.exe
+*.stash
+*.Debug
+*.Release
+
 # Qt-es
 object_script.*.Release
 object_script.*.Debug
@@ -27,8 +33,6 @@ qrc_*.cpp
 ui_*.h
 *.qmlc
 *.jsc
-Makefile*
-*build-*
 *.qm
 *.prl
 
